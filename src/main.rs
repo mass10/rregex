@@ -54,14 +54,13 @@ fn main() {
     // Analyzing command line arguments.
     let result = options.parse(std::env::args().skip(1));
     if result.is_err() {
-        error!("{}", result.err().unwrap());
-        println!("{}", options.usage(""));
+        eprint!("{}", options.usage(""));
         return;
     }
     let input = result.unwrap();
 
     if input.opt_present("help") {
-        println!("{}", options.usage(""));
+        eprint!("{}", options.usage(""));
         return;
     }
 
